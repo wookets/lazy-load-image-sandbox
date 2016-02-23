@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bLazy Demo</title>
+
+    <style>
+        .b-lazy {
+            -webkit-transition: opacity 150ms ease-in-out;
+            -moz-transition: opacity 150ms ease-in-out;
+            -o-transition: opacity 150ms ease-in-out;
+            transition: opacity 150ms ease-in-out;
+            max-width: 100%;
+            opacity: 0;
+        }
+        .b-lazy.b-loaded {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <h3>Solar System</h3>
+    <img class="b-lazy" height="150" width="250"
+         src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+         data-src="http://www.space.com/images/i/000/009/474/original/nasa-solar-system-graphic-72.jpg"
+    />
+
+    <h3>Sun</h3>
+    <img class="b-lazy" height="250" width="250"
+         src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+         data-src="https://www.nasa.gov/sites/default/files/706436main_20121114-304-193blend_m6-orig_full.jpg"
+    />
+
+    <h3>Mercury</h3>
+    <img class="b-lazy" height="250" width="250"
+         src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+         data-src="http://www.nasa.gov/sites/default/files/thumbnails/image/mercury.jpg"
+    />
+
+    <h3>Venus</h3>
+    <img class="b-lazy" height="250" width="250"
+         src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+         data-src="http://nssdc.gsfc.nasa.gov/image/planetary/venus/venusglobe.jpg|http://www.nasa.gov/sites/default/files/thumbnails/image/pia00271.jpg"
+    />
+
+    <h3>Mars</h3>
+    <img class="b-lazy" height="250" width="250"
+         src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+         data-src="http://mars.nasa.gov/images/mars-globe-valles-marineris-enhanced.jpg"
+    />
+
+    <h3>Missing</h3>
+    <img class="b-lazy" height="150" width="250"
+         src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+    />
+
+    <h3>Invalid</h3>
+    <img class="b-lazy" height="150" width="250"
+         src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+         data-src="http://mars.nasa.gov/images/wrong.jpg"
+    />
+
+    <h3>Solar System Dup</h3>
+    <img class="b-lazy" height="150" width="250"
+         src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+         data-src="http://www.space.com/images/i/000/009/474/original/nasa-solar-system-graphic-72.jpg"
+    />
+
+</div>
+
+
+<h3>Outside of Container</h3>
+<img class="b-lazy" height="150" width="250"
+     src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+     data-src="http://mars.nasa.gov/images/mars-globe-valles-marineris-enhanced.jpg"
+/>
+
+
+<script src="//cdn.jsdelivr.net/blazy/latest/blazy.min.js" type="application/javascript"></script>
+<script>
+    ;(function() {
+        var bLazy = new Blazy({
+            container: '#container', // Default is window,
+            offset: 250, // Loads images before they're visible
+            success: function (ele) {
+                // Image has loaded
+                // Do your business here
+                console.log("loaded", ele.src)
+            },
+            error: function (ele, msg) {
+                if (msg === 'missing') {
+                    // Data-src is missing
+                    console.log("missing", ele.src)
+                }
+                else if (msg === 'invalid') {
+                    // Data-src is invalid
+                    console.log("invalid", ele.src)
+                }
+            }
+        });
+    })();
+</script>
+
+</body>
+</html>
