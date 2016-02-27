@@ -1,0 +1,26 @@
+{
+  "name": "lazy-load-image-sandbox",
+  "version": "1.0.0",
+  "description": "tryig out various frameworks",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wookets/lazy-load-image-sandbox.git"
+  },
+  "keywords": [
+    "lazy",
+    "javascript"
+  ],
+  "author": "wookets",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wookets/lazy-load-image-sandbox/issues"
+  },
+  "homepage": "https://github.com/wookets/lazy-load-image-sandbox#readme",
+  "devDependencies": {
+    "gulp-webserver": "^0.9.1"
+  }
+}

@@ -20,7 +20,7 @@
 </head>
 <body>
 
-<div id="container">
+<div class="container">
     <h3>Solar System</h3>
     <img class="b-lazy" height="150" width="250"
          src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
@@ -88,7 +88,7 @@
 <script>
     ;(function() {
         var bLazy = new Blazy({
-            container: '#container', // Default is window,
+            container: '.container', // Default is window,
             offset: 250, // Loads images before they're visible
             success: function (ele) {
                 // Image has loaded
